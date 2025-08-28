@@ -54,13 +54,13 @@ Chrome MCP Server 是一个基于chrome插件的 **模型上下文协议 (MCP) �
 
 2. **全局安装mcp-chrome-bridge**
 
-npm
+#### npm
 
 ```bash
 npm install -g mcp-chrome-bridge
 ```
 
-pnpm
+#### pnpm
 
 ```bash
 # 方法1：全局启用脚本（推荐）
@@ -82,60 +82,12 @@ mcp-chrome-bridge register
      
    <img width="475" alt="截屏2025-06-09 15 52 06" src="https://github.com/user-attachments/assets/241e57b8-c55f-41a4-9188-0367293dc5bc" />
 
-### 在支持MCP协议的客户端中使用
-
-#### 使用streamable http的方式连接（👍🏻推荐）
-
-将以下配置添加到客户端的 MCP 配置中以cherryStudio为例：
-
-> 推荐用streamable http的连接方式
-
-```json
-{
-  "mcpServers": {
-    "chrome-mcp-server": {
-      "type": "streamableHttp",
-      "url": "http://127.0.0.1:12306/mcp"
-    }
-  }
-}
+### 在Claude中安装使用
+```bash
+claude mcp add -s user --transport http chrome-mcp-server http://127.0.0.1:12306/mcp
 ```
+上面的命令将mcp添加到了当前用户的所有项目（可以根据需求改成local or project），并指定了transport为http。
 
-#### 使用stdio的方式连接（备选）
-
-假设你的客户端仅支持stdio的连接方式，那么请使用下面的方法：
-
-1. 先查看你刚刚安装的npm包的安装位置
-
-```sh
-# npm 查看方式
-npm list -g mcp-chrome-bridge
-# pnpm 查看方式
-pnpm list -g mcp-chrome-bridge
-```
-
-假设上面的命令输出的路径是：/Users/xxx/Library/pnpm/global/5
-那么你的最终路径就是：/Users/xxx/Library/pnpm/global/5/node_modules/mcp-chrome-bridge/dist/mcp/mcp-server-stdio.js
-
-2. 把下面的配置替换成你刚刚得到的最终路径
-
-```json
-{
-  "mcpServers": {
-    "chrome-mcp-stdio": {
-      "command": "npx",
-      "args": [
-        "node",
-        "/Users/xxx/Library/pnpm/global/5/node_modules/mcp-chrome-bridge/dist/mcp/mcp-server-stdio.js"
-      ]
-    }
-  }
-}
-```
-
-比如：在augment中的配置如下：
-
-<img width="494" alt="截屏2025-06-22 22 11 25" src="https://github.com/user-attachments/assets/07c0b090-622b-433d-be70-44e8cb8980a5" />
 
 ## 🛠️ 可用工具
 
