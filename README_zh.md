@@ -48,11 +48,7 @@ Chrome MCP Server 是一个基于chrome插件的 **模型上下文协议 (MCP) �
 
 ### 安装步骤
 
-1. **从github上下载最新的chrome扩展**
-
-下载地址：https://github.com/hangwin/mcp-chrome/releases
-
-2. **全局安装mcp-chrome-bridge**
+1. **全局安装mcp-chrome-bridge**
 
 #### npm
 
@@ -73,6 +69,11 @@ mcp-chrome-bridge register
 ```
 
 > 注意：pnpm v7+ 默认禁用 postinstall 脚本以提高安全性。`enable-pre-post-scripts` 设置控制是否运行 pre/post 安装脚本。如果自动注册失败，请使用上述手动注册命令。
+
+2. **从github上下载最新的chrome扩展**
+
+下载地址：https://github.com/hangwin/mcp-chrome/releases
+
 
 3. **加载 Chrome 扩展**
    - 打开 Chrome 并访问 `chrome://extensions/`
