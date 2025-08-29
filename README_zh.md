@@ -83,7 +83,7 @@ mcp-chrome-bridge register
      
    <img width="200" height="auto" alt="Logo" alt="" src="images/img2.png" />
 
-### 在Claude中安装使用
+3. **在Claude中安装使用**
 ```bash
 claude mcp add -s user --transport http chrome-mcp-server http://127.0.0.1:12306/mcp
 ```
